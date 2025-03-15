@@ -24,7 +24,9 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/myAccount","/myBalance","/myLoans","myCards").authenticated()
                 .requestMatchers("/notices","/contact","/error").permitAll());
         http.formLogin(Customizer.withDefaults());
+        //http.formLogin(flc -> flc.disable());
         http.httpBasic(Customizer.withDefaults());
+        //http.httpBasic((flb -> flb.disable()));
 
         return http.build();
     }
